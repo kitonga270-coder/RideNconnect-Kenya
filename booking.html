@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Book a ride with RideConnect Kenya. Uber, matatu, taxi, airport transfer and parcel delivery in Nakuru. Pay via M-Pesa."/>
+<title>Book a Ride – RideConnect Kenya</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23c9a84c'/><text y='24' x='6' font-size='20'>🚗</text></svg>"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo"><div class="logo-icon">RC</div><div class="logo-text">Ride<span>Connect</span> <small style="font-size:0.6em;color:var(--gray)">Kenya</small></div></a>
+    <div class="nav-menu" id="navMenu">
+      <a href="index.html">Home</a><a href="services.html">Services</a><a href="booking.html" class="active">Book a Ride</a><a href="drivers.html">Drivers</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-actions" id="navActions"><a href="booking.html" class="btn btn-gold btn-sm"><i class="fa-solid fa-car"></i> Book Now</a></div>
+    <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <h1>Book a <span class="gold">Ride</span></h1>
+  <p>Fast, reliable transport across Nakuru. Confirm your booking instantly via WhatsApp.</p>
+  <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span class="current">Book a Ride</span></div>
+</div>
+
+<section class="booking-section">
+  <div class="container">
+    <div class="booking-wrapper">
+      <!-- FORM -->
+      <div>
+        <div class="booking-form">
+          <div class="form-title"><i class="fa-solid fa-car-side" style="color:var(--gold);margin-right:10px;"></i>Ride Booking Form</div>
+          <form id="bookingForm" onsubmit="submitBooking(event)">
+            <div class="form-row">
+              <div class="form-group"><label>Full Name</label><input type="text" name="name" placeholder="Your full name" required/></div>
+              <div class="form-group"><label>Phone Number</label><input type="tel" name="phone" placeholder="07XX XXX XXX" required/></div>
+            </div>
+            <div class="form-group"><label>Service Type</label>
+              <select name="service" required>
+                <option value="">Select a service...</option>
+                <option>Uber Ride</option><option>Matatu</option><option>Taxi</option>
+                <option>Airport Transfer</option><option>Parcel Delivery</option><option>Corporate Transport</option><option>Private Car Hire</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Pickup Location</label><input type="text" name="pickup" placeholder="e.g. Nakuru Town, Section 58, Milimani..." required/></div>
+            <div class="form-group"><label>Destination</label><input type="text" name="destination" placeholder="e.g. Nairobi CBD, Westlands, JKIA..." required/></div>
+            <div class="form-row">
+              <div class="form-group"><label>Date</label><input type="date" name="date" required/></div>
+              <div class="form-group"><label>Preferred Time</label><input type="time" name="time" required/></div>
+            </div>
+            <div class="form-group"><label>Number of Passengers</label>
+              <select name="passengers"><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select>
+            </div>
+            <div class="form-group"><label>Special Requests</label><textarea name="requests" placeholder="Any special requirements, e.g. wheelchair access, child seat, extra luggage, meet & greet..."></textarea></div>
+            <div class="form-group" style="display:flex;align-items:center;gap:10px;">
+              <input type="checkbox" id="terms" style="width:auto;accent-color:var(--gold);" required/>
+              <label for="terms" style="text-transform:none;font-size:0.82rem;color:var(--gray-light);">I agree to the <a href="#" style="color:var(--gold);">Terms of Service</a></label>
+            </div>
+            <button type="submit" class="btn btn-gold form-submit btn-lg"><i class="fa-solid fa-paper-plane"></i> Confirm Booking</button>
+          </form>
+        </div>
+      </div>
+      <!-- SIDEBAR INFO -->
+      <div>
+        <div style="background:var(--dark2);border:1px solid rgba(201,168,76,0.2);border-radius:var(--radius-lg);padding:25px;margin-bottom:20px;">
+          <h3 style="color:var(--white);margin-bottom:20px;"><i class="fa-solid fa-circle-info" style="color:var(--gold);margin-right:8px;"></i>Booking Info</h3>
+          <div style="display:flex;flex-direction:column;gap:15px;">
+            <div style="display:flex;align-items:start;gap:12px;padding-bottom:15px;border-bottom:1px solid rgba(255,255,255,0.05);">
+              <div style="width:38px;height:38px;background:rgba(201,168,76,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;">✅</div>
+              <div><div style="color:var(--white);font-size:0.9rem;font-weight:600;">Instant Confirmation</div><div style="color:var(--gray);font-size:0.8rem;margin-top:3px;">Get confirmed via WhatsApp within 5 minutes</div></div>
+            </div>
+            <div style="display:flex;align-items:start;gap:12px;padding-bottom:15px;border-bottom:1px solid rgba(255,255,255,0.05);">
+              <div style="width:38px;height:38px;background:rgba(201,168,76,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;">💳</div>
+              <div><div style="color:var(--white);font-size:0.9rem;font-weight:600;">M-Pesa Payment</div><div style="color:var(--gray);font-size:0.8rem;margin-top:3px;">Paybill: 100400 | Account: 9783823235</div></div>
+            </div>
+            <div style="display:flex;align-items:start;gap:12px;padding-bottom:15px;border-bottom:1px solid rgba(255,255,255,0.05);">
+              <div style="width:38px;height:38px;background:rgba(201,168,76,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;">🔒</div>
+              <div><div style="color:var(--white);font-size:0.9rem;font-weight:600;">Safe & Verified</div><div style="color:var(--gray);font-size:0.8rem;margin-top:3px;">All drivers are verified and background-checked</div></div>
+            </div>
+            <div style="display:flex;align-items:start;gap:12px;">
+              <div style="width:38px;height:38px;background:rgba(201,168,76,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;">📍</div>
+              <div><div style="color:var(--white);font-size:0.9rem;font-weight:600;">Live Tracking</div><div style="color:var(--gray);font-size:0.8rem;margin-top:3px;">Track your driver in real-time after booking</div></div>
+            </div>
+          </div>
+        </div>
+        <div style="background:var(--dark2);border:1px solid rgba(37,211,102,0.2);border-radius:var(--radius-lg);padding:25px;text-align:center;">
+          <div style="font-size:2rem;margin-bottom:10px;">📱</div>
+          <h4 style="color:var(--white);margin-bottom:8px;">Prefer WhatsApp?</h4>
+          <p style="font-size:0.83rem;color:var(--gray);margin-bottom:15px;">Chat with us directly for instant booking</p>
+          <a href="https://wa.me/254745031363?text=Hi%20RideConnect!%20I%20want%20to%20book%20a%20ride." target="_blank" class="btn btn-lg" style="background:var(--whatsapp);color:white;width:100%;justify-content:center;"><i class="fa-brands fa-whatsapp"></i> Book via WhatsApp</a>
+        </div>
+        <div style="background:var(--dark2);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius-lg);padding:25px;margin-top:20px;">
+          <h4 style="color:var(--white);margin-bottom:15px;"><i class="fa-solid fa-tags" style="color:var(--gold);margin-right:8px;"></i>Promo Code</h4>
+          <p style="font-size:0.82rem;color:var(--gray);margin-bottom:12px;">New user? Use code <strong style="color:var(--gold);">RIDE20</strong> for 20% off your first 3 rides!</p>
+          <div style="display:flex;gap:8px;">
+            <input type="text" placeholder="Enter promo code" style="flex:1;background:var(--dark3);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:10px 12px;color:var(--white);font-size:0.85rem;"/>
+            <button class="btn btn-gold btn-sm" onclick="applyPromo()">Apply</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING TABLE -->
+<section class="section-pad" style="background:var(--dark);">
+  <div class="container">
+    <div class="section-title"><h2>Fare <span class="gold">Estimates</span></h2><div class="divider"></div><p>Transparent pricing with no hidden charges</p></div>
+    <div class="pricing-grid">
+      <div class="pricing-card"><div class="pricing-icon">🚗</div><h3>Uber Ride</h3><div class="price">KES 150 <span>/ km base</span></div><ul class="pricing-features"><li><i class="fa-solid fa-check"></i>AC vehicle</li><li><i class="fa-solid fa-check"></i>Real-time tracking</li><li><i class="fa-solid fa-check"></i>Metered fare</li><li><i class="fa-solid fa-check"></i>M-Pesa payment</li></ul><a href="#bookingForm" class="btn btn-outline" style="width:100%;justify-content:center;">Book Now</a></div>
+      <div class="pricing-card featured"><div class="featured-badge">Most Popular</div><div class="pricing-icon">🚌</div><h3>Matatu</h3><div class="price">KES 30 <span>/ route</span></div><ul class="pricing-features"><li><i class="fa-solid fa-check"></i>Fixed route fares</li><li><i class="fa-solid fa-check"></i>Multiple stops</li><li><i class="fa-solid fa-check"></i>Cash or M-Pesa</li><li><i class="fa-solid fa-check"></i>All Nakuru routes</li></ul><a href="#bookingForm" class="btn btn-gold" style="width:100%;justify-content:center;">Book Now</a></div>
+      <div class="pricing-card"><div class="pricing-icon">✈️</div><h3>Airport Transfer</h3><div class="price">KES 2,500 <span>/ trip</span></div><ul class="pricing-features"><li><i class="fa-solid fa-check"></i>JKIA & Wilson</li><li><i class="fa-solid fa-check"></i>Meet & greet</li><li><i class="fa-solid fa-check"></i>Flight tracking</li><li><i class="fa-solid fa-check"></i>Pre-book 24hrs</li></ul><a href="#bookingForm" class="btn btn-outline" style="width:100%;justify-content:center;">Book Now</a></div>
+      <div class="pricing-card"><div class="pricing-icon">📦</div><h3>Parcel Delivery</h3><div class="price">KES 200 <span>/ package</span></div><ul class="pricing-features"><li><i class="fa-solid fa-check"></i>Same-day delivery</li><li><i class="fa-solid fa-check"></i>Package tracking</li><li><i class="fa-solid fa-check"></i>Insurance optional</li><li><i class="fa-solid fa-check"></i>Nakuru – Nairobi</li></ul><a href="#bookingForm" class="btn btn-outline" style="width:100%;justify-content:center;">Book Now</a></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-bottom container" style="padding:25px 20px;">
+    <p>&copy; 2024 RideConnect Kenya. All rights reserved.</p>
+    <div style="display:flex;gap:15px;align-items:center;">
+      <a href="tel:+254745031363" style="color:var(--gray);font-size:0.82rem;"><i class="fa-solid fa-phone" style="color:var(--gold);margin-right:5px;"></i>0745 031 363</a>
+      <a href="https://wa.me/254745031363" target="_blank" style="color:var(--whatsapp);font-size:0.82rem;"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/254745031363?text=Hi%20RideConnect%20Kenya!%20I%20need%20help." target="_blank" class="whatsapp-float"><i class="fa-brands fa-whatsapp"></i></a>
+<div class="notification" id="notification"><div class="notif-title" id="notifTitle"></div><div class="notif-msg" id="notifMsg"></div></div>
+<script src="js/main.js"></script>
+</body></html>

@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Admin Dashboard – RideConnect Kenya</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23c9a84c'/><text y='24' x='6' font-size='20'>🚗</text></svg>"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- LOGIN SCREEN -->
+<div id="loginScreen" class="admin-login">
+  <div class="login-card">
+    <div class="login-logo">
+      <div class="icon">RC</div>
+      <h2 style="color:var(--white);">Admin <span class="gold">Dashboard</span></h2>
+      <p style="color:var(--gray);font-size:0.85rem;margin-top:5px;">RideConnect Kenya – Nakuru</p>
+    </div>
+    <form onsubmit="adminLogin(event)">
+      <div class="form-group"><label style="color:var(--gold);font-size:0.8rem;font-weight:600;text-transform:uppercase;">Username</label>
+        <input type="text" id="adminUser" placeholder="Enter username" required style="width:100%;background:var(--dark3);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:13px 16px;color:var(--white);font-size:0.9rem;font-family:var(--font);outline:none;transition:var(--transition);"/>
+      </div>
+      <div class="form-group" style="margin-top:15px;"><label style="color:var(--gold);font-size:0.8rem;font-weight:600;text-transform:uppercase;">Password</label>
+        <input type="password" id="adminPass" placeholder="Enter password" required style="width:100%;background:var(--dark3);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:13px 16px;color:var(--white);font-size:0.9rem;font-family:var(--font);outline:none;transition:var(--transition);"/>
+      </div>
+      <div id="loginError" style="color:var(--danger);font-size:0.82rem;margin-top:10px;display:none;">❌ Invalid username or password</div>
+      <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;margin-top:20px;padding:15px;font-size:1rem;"><i class="fa-solid fa-lock-open"></i> Login to Dashboard</button>
+    </form>
+    <p style="text-align:center;margin-top:20px;color:var(--gray);font-size:0.8rem;"><a href="index.html" style="color:var(--gold);">← Back to Website</a></p>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard" class="admin-layout" style="display:none;">
+  <!-- SIDEBAR -->
+  <aside class="admin-sidebar" id="adminSidebar">
+    <div class="sidebar-logo">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="width:38px;height:38px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;color:var(--black);">RC</div>
+        <div><div style="color:var(--white);font-weight:700;font-size:0.95rem;">RideConnect</div><div style="color:var(--gray);font-size:0.72rem;">Admin Panel</div></div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section">Main</div>
+      <a class="sidebar-link active" onclick="showPanel('overview')"><i class="fa-solid fa-chart-pie"></i> Overview</a>
+      <a class="sidebar-link" onclick="showPanel('bookings')"><i class="fa-solid fa-calendar-check"></i> Bookings <span id="pendingBadge" style="background:var(--gold);color:var(--black);border-radius:50px;padding:1px 7px;font-size:0.7rem;margin-left:auto;"></span></a>
+      <a class="sidebar-link" onclick="showPanel('drivers')"><i class="fa-solid fa-id-card"></i> Drivers</a>
+      <a class="sidebar-link" onclick="showPanel('customers')"><i class="fa-solid fa-users"></i> Customers</a>
+      <div class="sidebar-section">Analytics</div>
+      <a class="sidebar-link" onclick="showPanel('analytics')"><i class="fa-solid fa-chart-line"></i> Analytics</a>
+      <a class="sidebar-link" onclick="showPanel('revenue')"><i class="fa-solid fa-money-bill-wave"></i> Revenue</a>
+      <div class="sidebar-section">Settings</div>
+      <a class="sidebar-link" onclick="showPanel('settings')"><i class="fa-solid fa-gear"></i> Settings</a>
+      <a class="sidebar-link" href="index.html" target="_blank"><i class="fa-solid fa-globe"></i> View Website</a>
+      <a class="sidebar-link" onclick="adminLogout()" style="color:var(--danger);margin-top:20px;"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div style="display:flex;align-items:center;gap:15px;">
+        <button onclick="document.getElementById('adminSidebar').classList.toggle('open')" style="background:none;color:var(--gray-light);font-size:1.1rem;display:none;" id="sidebarToggle"><i class="fa-solid fa-bars"></i></button>
+        <div class="topbar-title" id="panelTitle">📊 Overview</div>
+      </div>
+      <div class="topbar-actions">
+        <span style="color:var(--gray);font-size:0.82rem;" id="adminName">👤 Skarlet Adventures</span>
+        <a href="booking.html" target="_blank" class="btn btn-gold btn-sm"><i class="fa-solid fa-plus"></i> New Booking</a>
+      </div>
+    </div>
+
+    <div class="admin-content">
+
+      <!-- OVERVIEW PANEL -->
+      <div class="admin-panel active" id="panel-overview">
+        <div class="metric-grid">
+          <div class="metric-card"><div class="metric-top"><div class="metric-icon gold"><i class="fa-solid fa-calendar-check"></i></div><span class="metric-change up" id="mc-bookings">↑ 12%</span></div><div class="metric-num" id="m-bookings">0</div><div class="metric-label">Total Bookings</div></div>
+          <div class="metric-card"><div class="metric-top"><div class="metric-icon green"><i class="fa-solid fa-id-card"></i></div><span class="metric-change up" id="mc-drivers">↑ 8%</span></div><div class="metric-num" id="m-drivers">0</div><div class="metric-label">Driver Applications</div></div>
+          <div class="metric-card"><div class="metric-top"><div class="metric-icon blue"><i class="fa-solid fa-clock"></i></div></div><div class="metric-num" id="m-pending">0</div><div class="metric-label">Pending Bookings</div></div>
+          <div class="metric-card"><div class="metric-top"><div class="metric-icon gold"><i class="fa-solid fa-star"></i></div></div><div class="metric-num">4.8</div><div class="metric-label">Avg Rating</div></div>
+        </div>
+        <div class="chart-grid">
+          <div class="chart-card"><h3>📈 Bookings This Week</h3><canvas id="bookingsChart" height="100"></canvas></div>
+          <div class="chart-card"><h3>🚗 Service Breakdown</h3><canvas id="serviceChart" height="200"></canvas></div>
+        </div>
+        <div class="table-card">
+          <div class="table-header"><h3>Recent Bookings</h3><a href="#" onclick="showPanel('bookings')" style="color:var(--gold);font-size:0.85rem;">View all →</a></div>
+          <div style="overflow-x:auto;"><table class="data-table" id="recentTable"><thead><tr><th>ID</th><th>Customer</th><th>Service</th><th>Pickup</th><th>Date</th><th>Status</th></tr></thead><tbody id="recentBody"><tr><td colspan="6" style="text-align:center;color:var(--gray);padding:30px;">No bookings yet. <a href="booking.html" style="color:var(--gold);">Create test booking →</a></td></tr></tbody></table></div>
+        </div>
+      </div>
+
+      <!-- BOOKINGS PANEL -->
+      <div class="admin-panel" id="panel-bookings">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+          <h2 style="color:var(--white);">All Bookings</h2>
+          <div style="display:flex;gap:10px;">
+            <select id="statusFilter" onchange="filterBookings()" style="background:var(--dark2);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:8px 12px;color:var(--white);font-size:0.85rem;"><option value="">All Status</option><option value="pending">Pending</option><option value="confirmed">Confirmed</option><option value="completed">Completed</option><option value="cancelled">Cancelled</option></select>
+            <button class="btn btn-gold btn-sm" onclick="exportBookings()"><i class="fa-solid fa-download"></i> Export</button>
+          </div>
+        </div>
+        <div class="table-card">
+          <div class="table-header"><h3>Booking Requests</h3><input type="text" class="table-search" placeholder="Search bookings..." oninput="searchBookings(this.value)"/></div>
+          <div style="overflow-x:auto;"><table class="data-table"><thead><tr><th>ID</th><th>Name</th><th>Phone</th><th>Service</th><th>Pickup → Dest</th><th>Date/Time</th><th>Status</th><th>Actions</th></tr></thead><tbody id="bookingsBody"></tbody></table></div>
+        </div>
+      </div>
+
+      <!-- DRIVERS PANEL -->
+      <div class="admin-panel" id="panel-drivers">
+        <div style="margin-bottom:20px;"><h2 style="color:var(--white);">Driver Applications</h2></div>
+        <div class="table-card">
+          <div class="table-header"><h3>Registered Drivers</h3><input type="text" class="table-search" placeholder="Search drivers..."/></div>
+          <div style="overflow-x:auto;"><table class="data-table"><thead><tr><th>ID</th><th>Name</th><th>Phone</th><th>Vehicle</th><th>Service</th><th>Location</th><th>Status</th><th>Actions</th></tr></thead><tbody id="driversBody"></tbody></table></div>
+        </div>
+      </div>
+
+      <!-- CUSTOMERS PANEL -->
+      <div class="admin-panel" id="panel-customers">
+        <div style="margin-bottom:20px;"><h2 style="color:var(--white);">Customer Database</h2></div>
+        <div class="table-card">
+          <div class="table-header"><h3>All Customers</h3><input type="text" class="table-search" placeholder="Search customers..."/></div>
+          <div style="overflow-x:auto;"><table class="data-table"><thead><tr><th>Name</th><th>Phone</th><th>Total Bookings</th><th>Fav Service</th><th>Last Booking</th></tr></thead><tbody id="customersBody"></tbody></table></div>
+        </div>
+      </div>
+
+      <!-- ANALYTICS PANEL -->
+      <div class="admin-panel" id="panel-analytics">
+        <div class="metric-grid">
+          <div class="metric-card"><div class="metric-top"><div class="metric-icon gold"><i class="fa-solid fa-route"></i></div></div><div class="metric-num" id="a-total">0</div><div class="metric-label">Total Rides</div></div>
+          <div class="metric-card"><div class="metric-top"><div class="metric-icon green"><i class="fa-solid fa-check-circle"></i></div></div><div class="metric-num" id="a-completed">0</div><div class="metric-label">Completed</div></div>
+          <div class="metric-card"><div class="metric-top"><div class="metric-icon blue"><i class="fa-solid fa-hourglass"></i></div></div><div class="metric-num" id="a-pending">0</div><div class="metric-label">Pending</div></div>
+          <div class="metric-card"><div class="metric-top"><div class="metric-icon red"><i class="fa-solid fa-times-circle"></i></div></div><div class="metric-num" id="a-cancelled">0</div><div class="metric-label">Cancelled</div></div>
+        </div>
+        <div class="chart-card" style="margin-bottom:20px;"><h3>📊 Monthly Trends</h3><canvas id="trendChart" height="80"></canvas></div>
+      </div>
+
+      <!-- REVENUE PANEL -->
+      <div class="admin-panel" id="panel-revenue">
+        <div class="metric-grid">
+          <div class="metric-card"><div class="metric-top"><div class="metric-icon gold"><i class="fa-solid fa-money-bill"></i></div></div><div class="metric-num">KES 0</div><div class="metric-label">Total Revenue</div></div>
+          <div class="metric-card"><div class="metric-top"><div class="metric-icon green"><i class="fa-solid fa-calendar-day"></i></div></div><div class="metric-num">KES 0</div><div class="metric-label">Today</div></div>
+          <div class="metric-card"><div class="metric-top"><div class="metric-icon blue"><i class="fa-solid fa-calendar-week"></i></div></div><div class="metric-num">KES 0</div><div class="metric-label">This Week</div></div>
+          <div class="metric-card"><div class="metric-top"><div class="metric-icon gold"><i class="fa-solid fa-calendar"></i></div></div><div class="metric-num">KES 0</div><div class="metric-label">This Month</div></div>
+        </div>
+        <div class="table-card"><div class="table-header"><h3>Payment Details</h3></div><div style="padding:25px;text-align:center;color:var(--gray);"><div style="font-size:2rem;margin-bottom:10px;">💳</div><p>M-Pesa Paybill: <strong style="color:var(--gold);">100400</strong> | Account: <strong style="color:var(--gold);">9783823235</strong></p><p style="margin-top:10px;font-size:0.82rem;">Online payment tracking will be available after M-Pesa API integration.</p></div></div>
+      </div>
+
+      <!-- SETTINGS PANEL -->
+      <div class="admin-panel" id="panel-settings">
+        <h2 style="color:var(--white);margin-bottom:25px;">Settings</h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:25px;">
+          <div class="booking-form"><div class="form-title">🏢 Business Info</div>
+            <div class="form-group"><label>Business Name</label><input type="text" value="RideConnect Kenya" style="width:100%;background:var(--dark3);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:13px;color:var(--white);font-size:0.9rem;font-family:var(--font);"/></div>
+            <div class="form-group"><label>Phone</label><input type="text" value="+254 745 031 363" style="width:100%;background:var(--dark3);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:13px;color:var(--white);font-size:0.9rem;font-family:var(--font);"/></div>
+            <div class="form-group"><label>Email</label><input type="text" value="kitonga270@gmail.com" style="width:100%;background:var(--dark3);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:13px;color:var(--white);font-size:0.9rem;font-family:var(--font);"/></div>
+            <div class="form-group"><label>Location</label><input type="text" value="Nakuru City, Kenya" style="width:100%;background:var(--dark3);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:13px;color:var(--white);font-size:0.9rem;font-family:var(--font);"/></div>
+            <button class="btn btn-gold" onclick="alert('Settings saved!')"><i class="fa-solid fa-save"></i> Save Changes</button>
+          </div>
+          <div class="booking-form"><div class="form-title">🔒 Change Password</div>
+            <div class="form-group"><label>Current Password</label><input type="password" placeholder="Current password" style="width:100%;background:var(--dark3);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:13px;color:var(--white);font-size:0.9rem;font-family:var(--font);"/></div>
+            <div class="form-group"><label>New Password</label><input type="password" placeholder="New password" style="width:100%;background:var(--dark3);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:13px;color:var(--white);font-size:0.9rem;font-family:var(--font);"/></div>
+            <div class="form-group"><label>Confirm Password</label><input type="password" placeholder="Confirm new password" style="width:100%;background:var(--dark3);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:13px;color:var(--white);font-size:0.9rem;font-family:var(--font);"/></div>
+            <button class="btn btn-gold" onclick="alert('Password updated!')"><i class="fa-solid fa-lock"></i> Update Password</button>
+            <div style="margin-top:20px;padding:15px;background:var(--dark3);border-radius:8px;"><div style="font-size:0.8rem;color:var(--gray);margin-bottom:5px;">Current Admin</div><div style="color:var(--white);font-weight:600;">Skarlet Adventures</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end admin-content -->
+  </main>
+</div><!-- end dashboard -->
+
+<div class="notification" id="notification"><div class="notif-title" id="notifTitle"></div><div class="notif-msg" id="notifMsg"></div></div>
+<script src="js/admin.js"></script>
+</body></html>

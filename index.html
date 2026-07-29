@@ -1,0 +1,377 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="RideConnect Kenya - Nakuru's #1 transport marketplace. Book Uber rides, matatu, taxi, airport transfers & parcel delivery. Pay via M-Pesa."/>
+<meta name="keywords" content="RideConnect Kenya, Nakuru transport, matatu booking, Uber Kenya, taxi Nakuru, M-Pesa transport"/>
+<meta name="author" content="RideConnect Kenya"/>
+<meta property="og:title" content="RideConnect Kenya – Book Your Ride in Nakuru"/>
+<meta property="og:description" content="Connect with Uber drivers, matatu operators, taxis & private cars. Fast, reliable transport in Nakuru City."/>
+<meta property="og:type" content="website"/>
+<title>RideConnect Kenya – Nakuru's #1 Transport Marketplace</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23c9a84c'/><text y='24' x='6' font-size='20'>🚗</text></svg>"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">RC</div>
+      <div class="logo-text">Ride<span>Connect</span> <small style="font-size:0.6em;color:var(--gray)">Kenya</small></div>
+    </a>
+    <div class="nav-menu" id="navMenu">
+      <a href="index.html" class="active">Home</a>
+      <a href="services.html">Services</a>
+      <a href="booking.html">Book a Ride</a>
+      <a href="drivers.html">Drivers</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-actions" id="navActions">
+      <a href="booking.html" class="btn btn-gold btn-sm"><i class="fa-solid fa-car"></i> Book Now</a>
+    </div>
+    <div class="nav-toggle" id="navToggle">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge"><i class="fa-solid fa-circle" style="color:var(--success)"></i> Now Active in Nakuru City</div>
+      <h1 class="hero-title">
+        <span class="line1">Nakuru's Smartest</span><br>
+        <span class="line2">Transport Platform</span><br>
+        <span class="line3">Uber · Matatu · Taxi · Parcel · Airport</span>
+      </h1>
+      <p class="hero-desc">Compare fares, book instantly, track your ride, and pay via M-Pesa. Connecting you with trusted drivers across Nakuru City and beyond.</p>
+      <div class="hero-actions">
+        <a href="booking.html" class="btn btn-gold btn-lg"><i class="fa-solid fa-car-side"></i> Book a Ride</a>
+        <a href="drivers.html" class="btn btn-outline btn-lg"><i class="fa-solid fa-steering-wheel"></i> Become a Driver</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="num">500+</div><div class="label">Drivers</div></div>
+        <div class="hero-stat"><div class="num">10K+</div><div class="label">Rides Done</div></div>
+        <div class="hero-stat"><div class="num">4.8★</div><div class="label">Rating</div></div>
+        <div class="hero-stat"><div class="num">24/7</div><div class="label">Support</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card-grid">
+        <div class="hero-card"><div class="card-icon">��</div><h4>Uber Rides</h4><p>Comfortable, metered rides from KES 150</p></div>
+        <div class="hero-card"><div class="card-icon">🚌</div><h4>Matatu</h4><p>Local routes from KES 30</p></div>
+        <div class="hero-card"><div class="card-icon">✈️</div><h4>Airport Transfer</h4><p>JKIA & Wilson from KES 2,500</p></div>
+        <div class="hero-card"><div class="card-icon">📦</div><h4>Parcel Delivery</h4><p>Same-day delivery from KES 200</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEARCH -->
+<section class="search-section">
+  <div class="container">
+    <div class="search-box">
+      <div class="search-field">
+        <label><i class="fa-solid fa-map-marker-alt"></i> From</label>
+        <input type="text" placeholder="Pickup location in Nakuru..." id="searchFrom"/>
+      </div>
+      <div class="search-field">
+        <label><i class="fa-solid fa-flag-checkered"></i> To</label>
+        <input type="text" placeholder="Destination..." id="searchTo"/>
+      </div>
+      <div class="search-field">
+        <label><i class="fa-solid fa-car"></i> Service</label>
+        <select id="searchService">
+          <option value="">All Services</option>
+          <option>Uber Ride</option>
+          <option>Matatu</option>
+          <option>Taxi</option>
+          <option>Airport Transfer</option>
+          <option>Parcel Delivery</option>
+          <option>Corporate Transport</option>
+        </select>
+      </div>
+      <button class="btn btn-gold" onclick="window.location.href='booking.html'"><i class="fa-solid fa-search"></i> Search Rides</button>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section-pad" id="services">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our <span class="gold">Services</span></h2>
+      <div class="divider"></div>
+      <p>Everything you need to move around Nakuru and across Kenya</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🚗</div>
+        <span class="service-tag">Most Popular</span>
+        <h3>Uber Rides</h3>
+        <p>Book metered, AC rides with verified Uber drivers. Track your driver in real-time and pay via M-Pesa.</p>
+        <div class="service-price"><span class="from">Starting from</span><span class="amount">KES 150</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚌</div>
+        <span class="service-tag">Budget Friendly</span>
+        <h3>Matatu Services</h3>
+        <p>Find matatu routes, schedules and fares across Nakuru and major routes to Nairobi, Eldoret, Kisumu.</p>
+        <div class="service-price"><span class="from">Starting from</span><span class="amount">KES 30</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚕</div>
+        <span class="service-tag">Available 24/7</span>
+        <h3>Taxi Services</h3>
+        <p>Private taxi rides for solo travelers, families, or groups. Fixed fares, no surge pricing.</p>
+        <div class="service-price"><span class="from">Starting from</span><span class="amount">KES 300</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">✈️</div>
+        <span class="service-tag">Pre-Book Available</span>
+        <h3>Airport Transfers</h3>
+        <p>Comfortable transfers to JKIA, Wilson Airport, and Eldoret Airport. Meet & greet service available.</p>
+        <div class="service-price"><span class="from">Starting from</span><span class="amount">KES 2,500</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📦</div>
+        <span class="service-tag">Same Day</span>
+        <h3>Parcel Delivery</h3>
+        <p>Send parcels, documents, and packages within Nakuru or to Nairobi. Track delivery in real-time.</p>
+        <div class="service-price"><span class="from">Starting from</span><span class="amount">KES 200</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏢</div>
+        <span class="service-tag">Business</span>
+        <h3>Corporate Transport</h3>
+        <p>Fleet management, employee shuttle services, and corporate accounts with monthly billing.</p>
+        <div class="service-price"><span class="from">Starting from</span><span class="amount">KES 5,000/mo</span></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:35px;">
+      <a href="services.html" class="btn btn-outline"><i class="fa-solid fa-arrow-right"></i> View All Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section-pad" style="background:var(--dark);">
+  <div class="container">
+    <div class="section-title">
+      <h2>How It <span class="gold">Works</span></h2>
+      <div class="divider"></div>
+      <p>Book your ride in 3 simple steps</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-item"><div class="step-num">1</div><h4>Enter Your Route</h4><p>Enter pickup, destination, and choose your service type.</p></div>
+      <div class="step-item"><div class="step-num">2</div><h4>Compare & Choose</h4><p>See available drivers, compare fares and ratings.</p></div>
+      <div class="step-item"><div class="step-num">3</div><h4>Book & Pay</h4><p>Confirm your booking and pay instantly via M-Pesa.</p></div>
+      <div class="step-item"><div class="step-num">4</div><h4>Track Your Ride</h4><p>Track driver in real-time and get notified on arrival.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item"><div class="icon">🚗</div><div class="number" data-count="500">0</div><div class="label">Active Drivers</div></div>
+      <div class="stat-item"><div class="icon">🛣️</div><div class="number" data-count="10000">0</div><div class="label">Rides Completed</div></div>
+      <div class="stat-item"><div class="icon">😊</div><div class="number" data-count="8500">0</div><div class="label">Happy Passengers</div></div>
+      <div class="stat-item"><div class="icon">⭐</div><div class="number" data-count="98">0</div><div class="label">% Satisfaction</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section-pad">
+  <div class="container">
+    <div class="section-title">
+      <h2>What Our <span class="gold">Customers Say</span></h2>
+      <div class="divider"></div>
+      <p>Real reviews from real passengers across Nakuru</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"RideConnect has completely changed how I move around Nakuru. Booking is so easy and drivers are always on time. Love the M-Pesa payment!"</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">WK</div>
+          <div><div class="reviewer-name">Wanjiku Kamau</div><div class="reviewer-type">Uber Customer</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"I use RideConnect every morning for my matatu to town. The route information is accurate and I always know when the next matatu is coming."</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">BM</div>
+          <div><div class="reviewer-name">Brian Mutua</div><div class="reviewer-type">Matatu Customer</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Airport transfer was seamless. Driver was at my door at 3am, very professional. Will definitely use again for my next Nairobi trip."</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">FN</div>
+          <div><div class="reviewer-name">Faith Njoroge</div><div class="reviewer-type">Airport Transfer</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★☆</div>
+        <p>"The parcel delivery service saved my business. I can now send goods to clients in Nakuru same day. Very affordable rates too!"</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">JO</div>
+          <div><div class="reviewer-name">James Omondi</div><div class="reviewer-type">Business Owner</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"As a driver, RideConnect has increased my income significantly. The platform is easy to use and payments are on time every week."</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">PK</div>
+          <div><div class="reviewer-name">Peter Kipchoge</div><div class="reviewer-type">Verified Driver</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Corporate transport for our team sorted! Monthly billing, dedicated vehicles, professional drivers. Our employees love it."</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">SM</div>
+          <div><div class="reviewer-name">Susan Mwangi</div><div class="reviewer-type">Corporate Client</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="map-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our <span class="gold">Service Area</span></h2>
+      <div class="divider"></div>
+      <p>We cover Nakuru City and surrounding areas</p>
+    </div>
+    <div class="map-wrapper">
+      <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127641.23!2d36.0667!3d-0.3031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182972de1c4c70c9%3A0x1b7f76c4ba7b0f9!2sNakuru%2C%20Kenya!5e0!3m2!1sen!2ske!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="border:0;"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-pad" style="background:var(--dark);">
+  <div class="container">
+    <div class="section-title">
+      <h2>Frequently Asked <span class="gold">Questions</span></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How do I book a ride on RideConnect Kenya?<i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer"><p>Click "Book a Ride", enter your pickup and destination, choose your service type, compare available drivers and fares, then confirm your booking. You'll receive a confirmation via WhatsApp.</p></div></div>
+      <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What payment methods are accepted?<i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer"><p>We accept M-Pesa (Paybill 100400, Account 9783823235), cash payments directly to drivers, and card payments. Corporate clients get monthly invoicing.</p></div></div>
+      <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How do I become a driver on RideConnect?<i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer"><p>Visit our Drivers page, fill out the registration form, submit your documents (National ID, driving license, vehicle logbook, certificate of good conduct), and we'll verify and onboard you within 48 hours.</p></div></div>
+      <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is RideConnect available 24 hours?<i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer"><p>Yes! We operate 24/7. Our airport transfer and taxi services are available round the clock. Matatu routes follow their standard operating hours.</p></div></div>
+      <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How do I track my ride?<i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer"><p>After booking, you'll receive a WhatsApp message with your driver's details and a tracking link. You can track in real-time until pickup.</p></div></div>
+      <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Do you offer promo codes and discounts?<i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer"><p>Yes! New users get 20% off their first 3 rides. Refer a friend and earn KES 100 bonus each. Follow us on social media @Hitman_jojo for exclusive promo codes.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-pad" style="background:linear-gradient(135deg,#1a1200,#0a0a0a);">
+  <div class="container text-center">
+    <h2>Ready to <span class="gold">Ride Smarter?</span></h2>
+    <div style="width:60px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));margin:20px auto;"></div>
+    <p style="max-width:500px;margin:0 auto 35px;color:var(--gray);">Join thousands of Nakuru residents already using RideConnect Kenya for safe, affordable transport.</p>
+    <div style="display:flex;gap:15px;justify-content:center;flex-wrap:wrap;">
+      <a href="booking.html" class="btn btn-gold btn-lg"><i class="fa-solid fa-car"></i> Book Your First Ride</a>
+      <a href="https://wa.me/254745031363?text=Hi%20RideConnect%20Kenya!%20I%20want%20to%20book%20a%20ride." target="_blank" class="btn btn-outline btn-lg" style="border-color:var(--whatsapp);color:var(--whatsapp);"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo"><div class="logo-icon">RC</div><div class="logo-text">Ride<span>Connect</span> Kenya</div></div>
+          <p>Nakuru's smartest transport marketplace. Connecting passengers with trusted drivers since 2024.</p>
+          <div class="social-links">
+            <a href="https://facebook.com/Hitman_jojo" target="_blank" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://twitter.com/Hitman_jojo" target="_blank" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://instagram.com/Hitman_jojo" target="_blank" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://tiktok.com/@Hitman_jojo" target="_blank" class="social-link"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://wa.me/254745031363" target="_blank" class="social-link"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html#uber">Uber Rides</a></li>
+            <li><a href="services.html#matatu">Matatu Routes</a></li>
+            <li><a href="services.html#taxi">Taxi Services</a></li>
+            <li><a href="services.html#airport">Airport Transfers</a></li>
+            <li><a href="services.html#parcel">Parcel Delivery</a></li>
+            <li><a href="services.html#corporate">Corporate Transport</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="drivers.html">Become a Driver</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="admin.html">Admin Dashboard</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul>
+            <li><a href="tel:+254745031363"><i class="fa-solid fa-phone" style="color:var(--gold);margin-right:8px;"></i>+254 745 031 363</a></li>
+            <li><a href="mailto:kitonga270@gmail.com"><i class="fa-solid fa-envelope" style="color:var(--gold);margin-right:8px;"></i>kitonga270@gmail.com</a></li>
+            <li><a href="#"><i class="fa-solid fa-location-dot" style="color:var(--gold);margin-right:8px;"></i>Nakuru City, Kenya</a></li>
+            <li><a href="https://wa.me/254745031363" target="_blank"><i class="fa-brands fa-whatsapp" style="color:var(--whatsapp);margin-right:8px;"></i>WhatsApp Us</a></li>
+          </ul>
+          <div style="margin-top:20px;background:var(--dark2);border:1px solid rgba(201,168,76,0.2);border-radius:8px;padding:12px;">
+            <div style="font-size:0.72rem;color:var(--gray);margin-bottom:4px;">M-Pesa Paybill</div>
+            <div style="color:var(--gold);font-weight:700;">100400</div>
+            <div style="font-size:0.72rem;color:var(--gray);margin-top:4px;">Account: 9783823235</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    <p>&copy; 2024 RideConnect Kenya. All rights reserved.</p>
+    <p>Built with ❤️ for Nakuru City</p>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/254745031363?text=Hi%20RideConnect%20Kenya!%20I%20need%20help%20with%20a%20ride." target="_blank" class="whatsapp-float" title="Chat on WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<!-- NOTIFICATION -->
+<div class="notification" id="notification">
+  <div class="notif-title" id="notifTitle"></div>
+  <div class="notif-msg" id="notifMsg"></div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
